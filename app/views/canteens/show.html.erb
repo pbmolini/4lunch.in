@@ -1,11 +1,11 @@
 <div class="page-header">
   <%= link_to canteens_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Back
   <% end %>
   <%= link_to edit_canteen_path(@canteen), :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
   <% end %>
   <h1>Show canteen</h1>
 </div>
@@ -19,12 +19,22 @@
 
 </dl>
 
-<h2><%= _("Today's menu") %></h2>
+<h2><%= _("Today's menu") %> <%= link_to(fa_icon('pencil',text:_('Edit')), edit_canteen_menu_path(@canteen,@menu), :class => 'btn btn-primary') if @menu.id %></h2>
 
 <% if @menu.id %>
   <%= render('menus/show', menu: @menu) %>
 <% else %>
   <%= render('menus/form') %>
+<% end %>
+
+<% if @upcoming_menus.any? %>
+  <h3><%= _('Upcoming Menus') %></h3>
+  <%= render('menus/index', menus: @upcoming_menus) %>
+<% end %>
+
+<% if @past_menus.any? %>
+  <h3><%= _('Previous Menus') %></h3>
+  <%= render('menus/index', menus: @past_menus) %>
 <% end %>
 
 <!--ul>

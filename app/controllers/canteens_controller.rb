@@ -15,6 +15,9 @@ class CanteensController < ApplicationController
     else
       @menu = Menu.new(date: Date.today, canteen: @canteen)
     end
+
+    @upcoming_menus = @canteen.menus.where 'date > ?', Date.today
+    @past_menus = @canteen.menus.where 'date < ?', Date.today
   end
 
   # GET /canteens/new

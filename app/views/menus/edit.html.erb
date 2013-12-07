@@ -1,11 +1,10 @@
 <div class="page-header">
-  <%= link_to menus_path, :class => 'btn btn-default' do %>
+  <%= link_to canteen_menus_path(@canteen), :class => 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to @menu, :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+  <%= link_to canteen_menu_path(@canteen,@menu), :class => 'btn btn-primary' do %>
+    <%= fa_icon 'print', text: _('Print') %>
   <% end %>
   <h1>Editing menu</h1>
 </div>

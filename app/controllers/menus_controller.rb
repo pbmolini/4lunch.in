@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :set_canteen
 
   # GET /menus
   # GET /menus.json
@@ -25,6 +26,7 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
+    @menu.canteen = @canteen
 
     respond_to do |format|
       if @menu.save
@@ -42,7 +44,7 @@ class MenusController < ApplicationController
   def update
     respond_to do |format|
       if @menu.update(menu_params)
-        format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
+        format.html { redirect_to @menu.canteen, notice: 'Menu was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +58,7 @@ class MenusController < ApplicationController
   def destroy
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to menus_url }
+      format.html { redirect_to canteen_menus_path(@canteen) }
       format.json { head :no_content }
     end
   end
@@ -67,8 +69,12 @@ class MenusController < ApplicationController
       @menu = Menu.find(params[:id])
     end
 
+    def set_canteen
+      @canteen = Canteen.find params[:canteen_id]
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:date,:canteen_id)
+      params.require(:menu).permit(:date)
     end
 end
