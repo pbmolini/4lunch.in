@@ -18,3 +18,4 @@
 # Other stuff
 *~
 .DS_Store
+.ruby-version
