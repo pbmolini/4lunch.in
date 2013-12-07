@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to canteens_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_canteen_path(@canteen), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show canteen</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @canteen.name %></dd>
+
+  <dt>Webcam url:</dt>
+  <dd><%= @canteen.webcam_url %></dd>
+
+</dl>

@@ -1,4 +1,10 @@
 ForLunchIn::Application.routes.draw do
+  resources :canteens
+
+  resources :ingredients
+
+  resources :dishes
+
   resources :menus
 
   # The priority is based upon order of creation: first created -> highest priority.
