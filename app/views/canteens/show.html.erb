@@ -19,8 +19,16 @@
 
 </dl>
 
-<ul>
-  <% @menus.each do |menu| %>
+<h2><%= _("Today's menu") %></h2>
 
-  <% end %>
-</ul>
+<% if @menu.id %>
+  <%= render('menus/show', menu: @menu) %>
+<% else %>
+  <%= render('menus/form') %>
+<% end %>
+
+<!--ul>
+  <%# @menus.each do |menu| %>
+    <li><%#= menu.date %></li>
+  <%# end %>
+</ul-->

@@ -26,7 +26,12 @@ gem 'simple_form'
 
 gem 'nested_form'
 
+#gettext
+gem 'gettext', '>=3.0.2' #, :require => false, :group => :development
+gem 'ruby_parser', :require => false, :group => :development
 gem 'gettext_i18n_rails'
+#gem 'gettext_i18n_rails_js' incompatible with rails 4?
+gem 'po_to_json'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

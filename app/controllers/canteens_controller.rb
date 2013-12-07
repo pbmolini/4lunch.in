@@ -10,7 +10,11 @@ class CanteensController < ApplicationController
   # GET /canteens/1
   # GET /canteens/1.json
   def show
-    @menus = @canteen.menus
+    if @canteen.menus.find_by(date: Date.today)
+      @menu = @canteen.menus.find_by(date: Date.today)
+    else
+      @menu = Menu.new(date: Date.today, canteen: @canteen)
+    end
   end
 
   # GET /canteens/new

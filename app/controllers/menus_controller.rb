@@ -28,7 +28,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
+        format.html { redirect_to @menu.canteen, notice: 'Menu was successfully created.' }
         format.json { render action: 'show', status: :created, location: @menu }
       else
         format.html { render action: 'new' }
@@ -69,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:date)
+      params.require(:menu).permit(:date,:canteen_id)
     end
 end
