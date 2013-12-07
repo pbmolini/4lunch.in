@@ -10,6 +10,7 @@ class CanteensController < ApplicationController
   # GET /canteens/1
   # GET /canteens/1.json
   def show
+    @menus = @canteen.menus
   end
 
   # GET /canteens/new

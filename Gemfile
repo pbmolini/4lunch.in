@@ -20,6 +20,12 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem "bootstrap-generators", '~> 3.0'
 
+gem "font-awesome-rails"
+
+gem 'simple_form'
+
+gem 'nested_form'
+
 gem 'gettext_i18n_rails'
 
 # Use jquery as the JavaScript library
