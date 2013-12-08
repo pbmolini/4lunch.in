@@ -1,0 +1,14 @@
+<div class="fields menu-fields">
+    <div class="form-group">
+      <%= dishes_form.input :dish_type, collection: Dish::TYPES, label: false, input_html: {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= dishes_form.input :name, placeholder: _('Dish|Name'), label: false, input_html: {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= dishes_form.input :kcal, placeholder: _('Dish|Kcal'), label: false, input_html: {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= dishes_form.link_to_remove fa_icon('minus', text: _("Remove this dish")) %>
+    </div>
+  </div>

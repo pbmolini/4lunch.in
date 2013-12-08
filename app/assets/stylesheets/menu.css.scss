@@ -1,0 +1,12 @@
+.fields.menu-fields {
+	@extend .form-inline;
+	.form-group {
+		max-width: 30%;
+		margin: 0 5px;
+	}
+	margin: 5px 0;
+}
+
+.menu-item-select {
+	width: 300px;
+}

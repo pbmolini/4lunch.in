@@ -77,6 +77,6 @@ class CanteensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def canteen_params
-      params.require(:canteen).permit(:name, :webcam_url)
+      params.require(:canteen).permit(:name, :webcam_url, dishes_attributes: [:id,:name,:kcal,:dish_type,:_destroy])
     end
 end

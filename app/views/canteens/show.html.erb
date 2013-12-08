@@ -7,7 +7,7 @@
   <span class="glyphicon glyphicon-pencil"></span>
   Edit
   <% end %>
-  <h1>Show canteen</h1>
+  <h1><%= @canteen.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -16,8 +16,13 @@
 
   <dt>Webcam url:</dt>
   <dd><%= @canteen.webcam_url %></dd>
-
 </dl>
+
+<p><%= link_to_function(_('Show/Hide all dishes'),'javascript:$("#canteen-dishes").toggle()') if @canteen.dishes.any? %></p>
+<div id="canteen-dishes">
+<%= render 'dishes/index', dishes: @canteen.dishes %>
+</div>
+<hr>
 
 <h2><%= _("Today's menu") %> <%= link_to(fa_icon('pencil',text:_('Edit')), edit_canteen_menu_path(@canteen,@menu), :class => 'btn btn-primary') if @menu.id %></h2>
 
@@ -27,12 +32,16 @@
   <%= render('menus/form') %>
 <% end %>
 
+
 <% if @upcoming_menus.any? %>
+<hr>
   <h3><%= _('Upcoming Menus') %></h3>
   <%= render('menus/index', menus: @upcoming_menus) %>
 <% end %>
 
+
 <% if @past_menus.any? %>
+<hr>
   <h3><%= _('Previous Menus') %></h3>
   <%= render('menus/index', menus: @past_menus) %>
 <% end %>

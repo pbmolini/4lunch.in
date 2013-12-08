@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require select2
+//= require select2_locale_it
+//= require jquery_nested_form
 //= require_tree .
