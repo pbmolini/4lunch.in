@@ -14,7 +14,11 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/new
   def new
-    @ingredient = Ingredient.new
+    @ingredient = Ingredient.new(
+      burzum: true,
+      lactose: true,
+      gluten: true
+    )
   end
 
   # GET /ingredients/1/edit
@@ -69,6 +73,6 @@ class IngredientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingredient_params
-      params.require(:ingredient).permit(:name, :vegetarian, :vegan, :halal, :burzum, :frozen, :lactose, :kosher, :gluten)
+      params.require(:ingredient).permit(:name, :vegetarian, :vegan, :halal, :burzum, :frozen_food, :lactose, :kosher, :gluten)
     end
 end

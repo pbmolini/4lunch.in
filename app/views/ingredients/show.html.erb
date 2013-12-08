@@ -7,35 +7,11 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show ingredient</h1>
+  <h1><%= @ingredient.name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @ingredient.name %></dd>
-
-  <dt>Vegetarian:</dt>
-  <dd><%= @ingredient.vegetarian %></dd>
-
-  <dt>Vegan:</dt>
-  <dd><%= @ingredient.vegan %></dd>
-
-  <dt>Halal:</dt>
-  <dd><%= @ingredient.halal %></dd>
-
-  <dt>Burzum:</dt>
-  <dd><%= @ingredient.burzum %></dd>
-
-  <dt>Frozen:</dt>
-  <dd><%= @ingredient.frozen %></dd>
-
-  <dt>Lactose:</dt>
-  <dd><%= @ingredient.lactose %></dd>
-
-  <dt>Kosher:</dt>
-  <dd><%= @ingredient.kosher %></dd>
-
-  <dt>Gluten:</dt>
-  <dd><%= @ingredient.gluten %></dd>
-
-</dl>
+<p>
+  <% Ingredient.columns.collect {|c| c.name if c.type == :boolean}.compact.each do |att| %>
+    <%= content_tag(:span, att, class: 'label label-info') if @ingredient.send("#{att}?") %>
+  <% end %>
+</p>

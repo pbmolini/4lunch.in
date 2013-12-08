@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to edit_canteen_path(@canteen), :class => 'btn btn-primary' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
+  <% end %>
+  <h1><%= @canteen.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @canteen.name %></dd>
+
+  <dt>Webcam url:</dt>
+  <dd><%= @canteen.webcam_url %></dd>
+</dl>
+
+<p><%= link_to_function(_('Show/Hide all dishes'),'javascript:$("#canteen-dishes").toggle()') if @canteen.dishes.any? %></p>
+<div id="canteen-dishes">
+<%= render 'dishes/index', dishes: @canteen.dishes %>
+</div>
+<hr>
+
+<p><%= link_to_function(_('Show/Hide all ingredients'),'javascript:$("#canteen-ingredients").toggle()') %></p>
+<div id="canteen-ingredients">
+<%= render 'ingredients/index', ingredients: @canteen.dishes.map {|d| d.ingredients }.flatten %>
+</div>

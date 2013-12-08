@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208113620) do
+ActiveRecord::Schema.define(version: 20131208142807) do
 
   create_table "canteens", force: true do |t|
     t.string   "name"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20131208113620) do
     t.boolean  "vegan"
     t.boolean  "halal"
     t.boolean  "burzum"
-    t.boolean  "frozen"
     t.boolean  "lactose"
     t.boolean  "kosher"
     t.boolean  "gluten"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "frozen_food"
   end
 
   create_table "menus", force: true do |t|

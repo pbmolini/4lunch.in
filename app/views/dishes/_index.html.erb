@@ -1,15 +1,18 @@
 <dl class="dl-horizontal dishes">
-<% if dishes.any? %>
-  <% grouped_dishes = dishes.group_by(&:dish_type) %>
-  <% Dish::TYPES.each do |dt| %>
-	<% if grouped_dishes[dt] %>
-	  	<dt><%= dt %></dt>
-	  	<% grouped_dishes[dt].each do |dish| %>
-	  		<dd><%= dish.name %></dd>
-	  	<% end %>
+	<% if dishes.any? %>
+	  <% grouped_dishes = dishes.group_by(&:dish_type) %>
+	  <% Dish::TYPES.each do |dt| %>
+		<% if grouped_dishes[dt] %>
+		  	<dt class="dish-type"><%= dt %></dt>
+		  	<% grouped_dishes[dt].each do |dish| %>
+		  		<dd class="dish-name">
+		  			<%= dish.name %><br>
+		  			<%= ingredient_labels dish %>
+		  		</dd>
+		  	<% end %>
+		<% end %>
+	  <% end %>
+	<% else %>
+		<dd><%= _("There is no dish here!!") %></dd>
 	<% end %>
-  <% end %>
-<% else %>
-	<dd><%= _("There is no dish here!!") %></dd>
-<% end %>
 </dl>

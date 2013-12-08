@@ -1,12 +1,13 @@
 ForLunchIn::Application.routes.draw do
   resources :canteens do
-    resources :menus do
-      resources :dishes
+    member do
+      get 'details'
     end
-  end
-
-  resources :dishes do
-    resources :ingredients
+    resources :menus do
+      resources :dishes do
+        resources :ingredients
+      end
+    end
   end
 
   resources :ingredients

@@ -8,7 +8,19 @@
     <div class="form-group">
       <%= dishes_form.input :kcal, placeholder: _('Dish|Kcal'), label: false, input_html: {class: 'form-control'} %>
     </div>
+
+    <div class="form-group">
+      <%= dishes_form.association :ingredients, label: false, placeholder: _('Dish|Ingredients'), input_html: {class: 'ingredient-select'} %>
+      <%#= select_tag "canteen[dishes_attributes][#{dishes_form.object.id}][ingredient_ids]", options_from_collection_for_select(Ingredient.all,:id,:name,dishes_form.object.ingredients.pluck(:id)), multiple: true, class: 'ingredient-select' %>
+    </div>
+
     <div class="form-group">
       <%= dishes_form.link_to_remove fa_icon('minus', text: _("Remove this dish")) %>
     </div>
   </div>
+
+  <script type="text/javascript">
+$(document).ready(function() {
+  $('select.ingredient-select').select2();
+});
+  </script>

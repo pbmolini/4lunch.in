@@ -1,5 +1,5 @@
 class CanteensController < ApplicationController
-  before_action :set_canteen, only: [:show, :edit, :update, :destroy]
+  before_action :set_canteen, only: [:show, :edit, :update, :destroy, :details]
 
   # GET /canteens
   # GET /canteens.json
@@ -18,6 +18,9 @@ class CanteensController < ApplicationController
 
     @upcoming_menus = @canteen.menus.where 'date > ?', Date.today
     @past_menus = @canteen.menus.where 'date < ?', Date.today
+  end
+
+  def details
   end
 
   # GET /canteens/new
@@ -77,6 +80,6 @@ class CanteensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def canteen_params
-      params.require(:canteen).permit(:name, :webcam_url, dishes_attributes: [:id,:name,:kcal,:dish_type,:_destroy])
+      params.require(:canteen).permit(:name, :webcam_url, dishes_attributes: [:id,:name,:kcal,:dish_type,:_destroy,:ingredient_ids => []])
     end
 end
