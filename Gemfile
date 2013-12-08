@@ -47,6 +47,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  # improve error messages significantly
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  #use pry instead of normal rails c
+  gem 'pry-rails'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
