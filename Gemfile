@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem "bootstrap-generators", '~> 3.0'
+gem 'bootstrap-datepicker-rails'
 
 gem "font-awesome-rails"
 

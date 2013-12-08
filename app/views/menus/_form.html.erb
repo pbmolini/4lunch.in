@@ -15,7 +15,7 @@
   <div class="form-group">
     <%= f.label :date, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.input :date, :class => "form-control", label: false %>
+      <%= f.input :date, as: :string, :class => "form-control", label: false, input_html:{data: {behaviour: :datepicker}} %>
     </div>
   </div>
   <div class="form-group">
@@ -24,3 +24,12 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker({
+      format: '<%= date_format_js %>',
+      language: '<%= I18n.locale %>'
+    });
+  })
+</script>
