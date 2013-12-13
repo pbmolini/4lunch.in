@@ -10,7 +10,7 @@
   <%= link_to canteen_menu_path(@canteen,@menu), :class => 'btn btn-primary' do %>
     <%= fa_icon 'print', text: _('Print') %>
   <% end %>
-  <h1>Show menu</h1>
+  <h1><%= @menu.date %></h1>
 </div>
 
 <%= render 'menus/show' %>
