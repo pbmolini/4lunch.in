@@ -10,3 +10,15 @@
 .menu-item-select, .ingredient-select {
 	width: 300px;
 }
+
+.dishes {
+  .dish-type {
+    font-size: 1.2em;
+  }
+  .dish-name {
+    font-size: 2em;
+    .label {
+      font-size: 1.2em;
+    }
+  }
+}
