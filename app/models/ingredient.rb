@@ -8,7 +8,7 @@ class Ingredient < ActiveRecord::Base
 
   def self.reduce_operator_for column_name
     case column_name
-    when :frozen
+    when :frozen_food
       :|
     when :lactose
       :|
