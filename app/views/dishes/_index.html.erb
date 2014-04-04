@@ -5,8 +5,8 @@
 		<% if grouped_dishes[dt] %>
 		  	<dt class="dish-type"><%= dt %></dt>
 		  	<% grouped_dishes[dt].each do |dish| %>
-		  		<dd class="dish-name">
-		  			<%= dish.name %><br>
+		  		<dd class="dish">
+		  			<span class="dish-name"><%= dish.name %></span><br>
 		  			<%= ingredient_labels dish %>
 		  		</dd>
 		  	<% end %>
