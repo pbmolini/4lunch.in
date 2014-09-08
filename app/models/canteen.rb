@@ -1,4 +1,6 @@
 class Canteen < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
 	has_many :dishes
 	has_many :menus
