@@ -70,7 +70,7 @@ class MenusController < ApplicationController
     end
 
     def set_canteen
-      @canteen = Canteen.find params[:canteen_id]
+      @canteen = Canteen.friendly.find params[:canteen_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
