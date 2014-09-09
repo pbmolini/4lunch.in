@@ -13,6 +13,17 @@ class MenusController < ApplicationController
   def show
   end
 
+  [:yesterday,:today,:tomorrow].each do |f|
+    define_method f do
+      @menu = Canteen.friendly.find(params[:canteen_id]).menus.where(date: Date.send(f)).first
+      if @menu
+        render action: 'show'
+      else
+        render action: 'index'
+      end
+    end
+  end
+
   # GET /menus/new
   def new
     @menu = Menu.new

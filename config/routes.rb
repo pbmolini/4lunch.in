@@ -12,7 +12,17 @@ ForLunchIn::Application.routes.draw do
 
   resources :ingredients
 
-  get ':id', to: 'canteens#show', constraints: lambda { |request| Canteen.friendly.find(request.params[:id]) }
+  class CanteensConstraint
+    def matches?(request)
+      canteen_id = request.params[:id] || request.params[:canteen_id]
+      Canteen.friendly.find(canteen_id)
+    end
+  end
+
+  get ':id', to: 'canteens#show', constraints: CanteensConstraint.new
+  get ':canteen_id/today', to: 'menus#today', constraints: CanteensConstraint.new
+  get ':canteen_id/yesterday', to: 'menus#yesterday', constraints: CanteensConstraint.new
+  get ':canteen_id/tomorrow', to: 'menus#tomorrow', constraints: CanteensConstraint.new
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
